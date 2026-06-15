@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MapContainer, Marker, TileLayer, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { Link } from "react-router";
 import { fetchEvents } from "../api/events";
 import EventDetail from "./EventDetail";
 import { createEventIcon } from "./EventMarker";
@@ -48,10 +49,20 @@ export default function MapView({
     <div className="map-view">
       {interactive && (
         <header className="map-header">
-          <div className="map-header__brand">
+          <Link to="/" className="map-header__brand">
             <h1>Academap</h1>
             <p>Карта событий Бишкека</p>
-          </div>
+          </Link>
+          <nav className="map-header__nav">
+            <Link to="/about" className="map-header__nav-link" aria-label="О проекте" title="О проекте">
+              <svg className="map-header__nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span>О проекте</span>
+            </Link>
+          </nav>
         </header>
       )}
 
