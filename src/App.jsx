@@ -1,7 +1,12 @@
-import "./App.css";
+import { Routes, Route } from "react-router";
+import MapView from "./components/MapView";
+import AdminPage from "./pages/AdminPage";
 
-function App() {
-  return <></>;
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<MapView />} />
+      <Route path="/admin" element={<AdminPage />} />
+    </Routes>
+  );
 }
-
-export default App;
