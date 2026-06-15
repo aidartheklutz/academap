@@ -47,11 +47,23 @@ app.get("/api/events/:id", async (req, res) => {
 
 app.post("/api/events", async (req, res) => {
   try {
-    const { title, description, posterUrl, lat, lng, expiresAt, category, registrationUrl } =
-      req.body;
+    const {
+      title,
+      description,
+      posterUrl,
+      lat,
+      lng,
+      expiresAt,
+      startDate,
+      endDate,
+      category,
+      organizerUrl,
+    } = req.body;
 
-    if (!title || lat == null || lng == null || !expiresAt) {
-      res.status(400).json({ error: "Заполните название, координаты и дату окончания" });
+    if (!title || lat == null || lng == null || !expiresAt || !startDate || !endDate) {
+      res.status(400).json({
+        error: "Заполните название, координаты, дату регистрации и даты события",
+      });
       return;
     }
 
@@ -64,8 +76,10 @@ app.post("/api/events", async (req, res) => {
       lat: Number(lat),
       lng: Number(lng),
       expiresAt,
+      startDate,
+      endDate,
       category: category ?? "other",
-      ...(registrationUrl ? { registrationUrl } : {}),
+      ...(organizerUrl ? { organizerUrl } : {}),
     };
 
     events.push(event);
@@ -85,8 +99,18 @@ app.put("/api/events/:id", async (req, res) => {
       return;
     }
 
-    const { title, description, posterUrl, lat, lng, expiresAt, category, registrationUrl } =
-      req.body;
+    const {
+      title,
+      description,
+      posterUrl,
+      lat,
+      lng,
+      expiresAt,
+      startDate,
+      endDate,
+      category,
+      organizerUrl,
+    } = req.body;
 
     events[index] = {
       ...events[index],
@@ -96,8 +120,10 @@ app.put("/api/events/:id", async (req, res) => {
       ...(lat !== undefined && { lat: Number(lat) }),
       ...(lng !== undefined && { lng: Number(lng) }),
       ...(expiresAt !== undefined && { expiresAt }),
+      ...(startDate !== undefined && { startDate }),
+      ...(endDate !== undefined && { endDate }),
       ...(category !== undefined && { category }),
-      registrationUrl: registrationUrl ?? events[index].registrationUrl,
+      organizerUrl: organizerUrl ?? events[index].organizerUrl,
     };
 
     await writeEvents(events);

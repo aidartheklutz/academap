@@ -2,13 +2,15 @@
   {
     "id": "1",
     "title": "Model UN — Бишкек 2026",
-    "description": "Ежегодная конференция Model United Nations для школьников и студентов. Обсуждение глобальных проблем, дебаты и дипломатия в формате ООН. Регистрация открыта до указанной даты.",
+    "description": "Ежегодная конференция Model United Nations для школьников и студентов. Обсуждение глобальных проблем, дебаты и дипломатия в формате ООН.",
     "posterUrl": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=200&h=200&fit=crop",
     "lat": 42.8746,
     "lng": 74.5698,
-    "expiresAt": "2026-07-15",
+    "expiresAt": "2026-07-10",
+    "startDate": "2026-07-15",
+    "endDate": "2026-07-17",
     "category": "mun",
-    "registrationUrl": "https://example.com/mun-bishkek"
+    "organizerUrl": "https://example.com/mun-bishkek"
   },
   {
     "id": "2",
@@ -17,8 +19,11 @@
     "posterUrl": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=200&h=200&fit=crop",
     "lat": 42.882,
     "lng": 74.582,
-    "expiresAt": "2026-06-20",
-    "category": "olympiad"
+    "expiresAt": "2026-06-18",
+    "startDate": "2026-06-20",
+    "endDate": "2026-06-20",
+    "category": "olympiad",
+    "organizerUrl": "https://example.com/math-olympiad"
   },
   {
     "id": "3",
@@ -27,8 +32,11 @@
     "posterUrl": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=200&h=200&fit=crop",
     "lat": 42.865,
     "lng": 74.555,
-    "expiresAt": "2026-06-18",
-    "category": "volunteering"
+    "expiresAt": "2026-06-17",
+    "startDate": "2026-06-18",
+    "endDate": "2026-06-18",
+    "category": "volunteering",
+    "organizerUrl": "https://example.com/clean-city"
   },
   {
     "id": "4",
@@ -37,7 +45,10 @@
     "posterUrl": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=200&h=200&fit=crop",
     "lat": 42.856,
     "lng": 74.601,
-    "expiresAt": "2026-08-01",
-    "category": "conference"
+    "expiresAt": "2026-07-25",
+    "startDate": "2026-08-01",
+    "endDate": "2026-08-02",
+    "category": "conference",
+    "organizerUrl": "https://example.com/education-conf"
   }
 ]

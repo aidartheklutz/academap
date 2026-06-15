@@ -15,6 +15,12 @@ export function formatFullDate(isoDate) {
   });
 }
 
+export function formatDateRange(startDate, endDate) {
+  const start = formatFullDate(startDate);
+  if (!endDate || endDate === startDate) return start;
+  return `${start} — ${formatFullDate(endDate)}`;
+}
+
 export function isExpired(isoDate) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);

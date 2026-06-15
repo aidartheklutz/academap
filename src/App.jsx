@@ -6,7 +6,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<MapView />} />
-      <Route path="/admin" element={<AdminPage />} />
+      <Route path="/admin-0311" element={<AdminPage />} />
     </Routes>
   );
 }

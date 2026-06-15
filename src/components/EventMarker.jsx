@@ -5,7 +5,7 @@ export function createEventIcon(event) {
   const expired = isExpired(event.expiresAt);
   const posterStyle = event.posterUrl
     ? `background-image: url('${event.posterUrl}');`
-    : "background: linear-gradient(135deg, #6366f1, #8b5cf6);";
+    : "background: linear-gradient(135deg, #006A4F, #4ac752);";
 
   return L.divIcon({
     className: "",

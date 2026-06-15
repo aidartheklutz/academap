@@ -1,10 +1,11 @@
 import { CATEGORIES } from "../constants/categories";
-import { formatFullDate, isExpired } from "../utils/formatDate";
+import { formatDateRange, formatFullDate, isExpired } from "../utils/formatDate";
 
 export default function EventDetail({ event, onClose }) {
   if (!event) return null;
 
-  const expired = isExpired(event.expiresAt);
+  const signupClosed = isExpired(event.expiresAt);
+  const contactUrl = event.organizerUrl ?? event.registrationUrl;
 
   return (
     <div className="event-detail-overlay" onClick={onClose}>
@@ -28,24 +29,32 @@ export default function EventDetail({ event, onClose }) {
               {CATEGORIES[event.category] ?? CATEGORIES.other}
             </span>
             <h2 className="event-detail__title">{event.title}</h2>
-            <p className={`event-detail__expiry ${expired ? "event-detail__expiry--past" : ""}`}>
-              {expired ? "Срок истёк" : "Актуально"} · до {formatFullDate(event.expiresAt)}
-            </p>
           </div>
+        </div>
+
+        <div className="event-detail__meta">
+          <p className={`event-detail__signup ${signupClosed ? "event-detail__signup--closed" : ""}`}>
+            Можно записаться до: {formatFullDate(event.expiresAt)}
+          </p>
+          {event.startDate && (
+            <p className="event-detail__dates">
+              {formatDateRange(event.startDate, event.endDate)}
+            </p>
+          )}
         </div>
 
         {event.description && (
           <p className="event-detail__description">{event.description}</p>
         )}
 
-        {event.registrationUrl && !expired && (
+        {contactUrl && (
           <a
             className="event-detail__link"
-            href={event.registrationUrl}
+            href={contactUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Зарегистрироваться
+            Связаться с организатором
           </a>
         )}
       </div>

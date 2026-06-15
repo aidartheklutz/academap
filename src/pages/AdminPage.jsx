@@ -11,8 +11,10 @@ const emptyForm = {
   lat: null,
   lng: null,
   expiresAt: "",
+  startDate: "",
+  endDate: "",
   category: "other",
-  registrationUrl: "",
+  organizerUrl: "",
 };
 
 export default function AdminPage() {
@@ -43,8 +45,10 @@ export default function AdminPage() {
       lat: event.lat,
       lng: event.lng,
       expiresAt: event.expiresAt,
+      startDate: event.startDate ?? "",
+      endDate: event.endDate ?? "",
       category: event.category ?? "other",
-      registrationUrl: event.registrationUrl ?? "",
+      organizerUrl: event.organizerUrl ?? event.registrationUrl ?? "",
     });
     setError(null);
     setMessage(null);
@@ -156,7 +160,7 @@ export default function AdminPage() {
             </label>
 
             <label>
-              Дата окончания *
+              Можно записаться до *
               <input
                 name="expiresAt"
                 type="date"
@@ -167,11 +171,33 @@ export default function AdminPage() {
             </label>
 
             <label>
-              Ссылка на регистрацию
+              Дата начала события *
               <input
-                name="registrationUrl"
+                name="startDate"
+                type="date"
+                value={form.startDate}
+                onChange={handleChange}
+                required
+              />
+            </label>
+
+            <label>
+              Дата окончания события *
+              <input
+                name="endDate"
+                type="date"
+                value={form.endDate}
+                onChange={handleChange}
+                required
+              />
+            </label>
+
+            <label>
+              Ссылка для связи с организатором
+              <input
+                name="organizerUrl"
                 type="url"
-                value={form.registrationUrl}
+                value={form.organizerUrl}
                 onChange={handleChange}
                 placeholder="https://..."
               />

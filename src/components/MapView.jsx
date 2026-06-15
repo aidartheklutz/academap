@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
 import { MapContainer, Marker, TileLayer, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { fetchEvents } from "../api/events";
@@ -53,9 +52,6 @@ export default function MapView({
             <h1>Academap</h1>
             <p>Карта событий Бишкека</p>
           </div>
-          <Link to="/admin" className="map-header__admin-link">
-            Админ-панель
-          </Link>
         </header>
       )}
 
