@@ -50,8 +50,11 @@ export default function MapView({
       {interactive && (
         <header className="map-header">
           <Link to="/" className="map-header__brand">
-            <h1>Academap</h1>
-            <p>Карта событий Бишкека</p>
+            <img src="/academap.png" alt="Academap Logo" className="map-header__logo" />
+            <div className="map-header__brand-text">
+              <h1>Academap</h1>
+              <p>Карта событий Бишкека</p>
+            </div>
           </Link>
           <nav className="map-header__nav">
             <Link to="/about" className="map-header__nav-link" aria-label="О проекте" title="О проекте">
