@@ -28,9 +28,9 @@ Brynza is our hackathon team. We are aspiring students from Bishkek (Kyrgyzstan)
 
 ## Our Members
 
-- **Aidar Yrysov**: Head Coordinator, Frontend Developer, UX/UI Designer ([GitHub](github.com/aidartheklutz))
-- **Kylymdar Omorov**: Vice Head Coordinator, Backend Developer, API Developer ([GitHub](github.com/irfadox))
-- **Daniil Elistratov**: Research Specialist, Concept Developer, Financial Specialist
+- **Aidar Yrysov**: Head Coordinator, Frontend Developer, UX/UI Designer ([GitHub](https://github.com/aidartheklutz))
+- **Kylymdar Omorov**: Vice Head Coordinator, Backend Developer, API Developer ([GitHub](https://github.com/irfadox))
+- **Daniil Elistratov**: Research Specialist, Concept Developer, Financial Specialist ([GitHub](https://github.com/nantendo45))
 - **Raena Isatailakova**: Presentation Designer, Research Specialist, Partnerships Lead
 
 ## Our Projects on Different Hackathons
