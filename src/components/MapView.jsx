@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { MapContainer, Marker, TileLayer, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { Link } from "react-router";
 import { fetchEvents } from "../api/events";
+import { CATEGORIES } from "../constants/categories";
 import EventDetail from "./EventDetail";
 import { createEventIcon } from "./EventMarker";
 
 const BISHKEK_CENTER = [42.8746, 74.5698];
 const DEFAULT_ZOOM = 13;
+const CATEGORY_KEYS = Object.keys(CATEGORIES);
 
 function MapClickHandler({ onMapClick, enabled }) {
   useMapEvents({
@@ -29,8 +31,26 @@ export default function MapView({
 }) {
   const [events, setEvents] = useState(externalEvents ?? []);
   const [selectedEvent, setSelectedEvent] = useState(null);
+  const [selectedCategories, setSelectedCategories] = useState(CATEGORY_KEYS);
+  const [filterOpen, setFilterOpen] = useState(false);
   const [loading, setLoading] = useState(!externalEvents);
   const [error, setError] = useState(null);
+
+  const selectedCategorySet = useMemo(
+    () => new Set(selectedCategories),
+    [selectedCategories],
+  );
+
+  const visibleEvents = interactive
+    ? events.filter((event) =>
+        selectedCategorySet.has(
+          CATEGORIES[event.category] ? event.category : "other",
+        ),
+      )
+    : events;
+
+  const allCategoriesSelected =
+    selectedCategories.length === CATEGORY_KEYS.length;
 
   useEffect(() => {
     if (externalEvents) {
@@ -45,28 +65,86 @@ export default function MapView({
       .finally(() => setLoading(false));
   }, [externalEvents]);
 
+  function toggleCategory(categoryKey) {
+    setSelectedCategories((prev) =>
+      prev.includes(categoryKey)
+        ? prev.filter((key) => key !== categoryKey)
+        : [...prev, categoryKey],
+    );
+  }
+
+  function toggleAllCategories() {
+    setSelectedCategories(allCategoriesSelected ? [] : CATEGORY_KEYS);
+  }
+
   return (
     <div className="map-view">
       {interactive && (
         <header className="map-header">
           <Link to="/" className="map-header__brand">
-            <img src="/academap.png" alt="Academap Logo" className="map-header__logo" />
+            <img
+              src="/academap.png"
+              alt="Academap Logo"
+              className="map-header__logo"
+            />
             <div className="map-header__brand-text">
               <h1>Academap</h1>
-              <p>Карта событий Бишкека</p>
+              <p>Карта возможностей для студентов</p>
             </div>
           </Link>
           <nav className="map-header__nav">
-            <Link to="/about" className="map-header__nav-link" aria-label="О проекте" title="О проекте">
-              <svg className="map-header__nav-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-              <span>О проекте</span>
+            <Link
+              to="/about"
+              className="map-header__nav-link"
+              aria-label="О проекте"
+              title="О проекте"
+            >
+              <i className="bi bi-info-circle-fill"></i> <span>О проекте</span>
             </Link>
           </nav>
         </header>
+      )}
+
+      {interactive && (
+        <>
+          <button
+            type="button"
+            className="map-filter-toggle"
+            onClick={() => setFilterOpen((prev) => !prev)}
+            aria-expanded={filterOpen}
+            aria-controls="map-category-filter"
+          >
+            <i className="bi bi-funnel-fill"></i>{" "}
+            {filterOpen ? "Скрыть фильтр" : "Фильтр"}
+          </button>
+
+          {filterOpen && (
+            <section
+              id="map-category-filter"
+              className="map-filter"
+              aria-label="Фильтр категорий"
+            >
+              <div className="map-filter__topline">
+                <h2>Категории</h2>
+                <button type="button" onClick={toggleAllCategories}>
+                  {allCategoriesSelected ? "Скрыть все" : "Показать все"}
+                </button>
+              </div>
+              <div className="map-filter__options">
+                {Object.entries(CATEGORIES).map(([key, label]) => (
+                  <label key={key} className="map-filter__option">
+                    <input
+                      type="checkbox"
+                      checked={selectedCategorySet.has(key)}
+                      onChange={() => toggleCategory(key)}
+                    />
+                    <span>{label}</span>
+                  </label>
+                ))}
+              </div>
+            </section>
+          )}
+        </>
       )}
 
       {loading && <div className="map-status">Загрузка...</div>}
@@ -85,7 +163,7 @@ export default function MapView({
 
         <MapClickHandler onMapClick={onMapClick} enabled={mapClickEnabled} />
 
-        {events.map((event) => (
+        {visibleEvents.map((event) => (
           <Marker
             key={event.id}
             position={[event.lat, event.lng]}
@@ -102,14 +180,19 @@ export default function MapView({
             icon={createEventIcon({
               ...placementMarker,
               posterUrl: placementMarker.posterUrl || "",
-              expiresAt: placementMarker.expiresAt || new Date().toISOString().slice(0, 10),
+              expiresAt:
+                placementMarker.expiresAt ||
+                new Date().toISOString().slice(0, 10),
             })}
           />
         )}
       </MapContainer>
 
       {selectedEvent && (
-        <EventDetail event={selectedEvent} onClose={() => setSelectedEvent(null)} />
+        <EventDetail
+          event={selectedEvent}
+          onClose={() => setSelectedEvent(null)}
+        />
       )}
     </div>
   );

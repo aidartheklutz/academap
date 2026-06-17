@@ -1,16 +1,22 @@
-# React + Vite
+# Academap
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Academap is a map of Bishkek with opportunities for students marked around the city. We built it as team Brynza during Shift Hackathon to make it easier for school and university students to discover events that are actually useful to them.
 
-Currently, two official plugins are available:
+Instead of searching through different chats, posts, and websites, students can open one map and look for olympiads, Model UN events, conferences, volunteering, internships, courses, film meetups, book clubs, English Talking Clubs, contests, trainings, seminars, workshops, hackathons, lectures, debates, career fairs, scholarships, exhibitions, and other opportunities.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
 
-## React Compiler
+- **React** + **Vite**
+- **React Router** (for navigation between pages)
+- **Leaflet** + **React Leaflet** (for the interactive map and markers).
+- **Express** (for a small API handling map marker data).
+- **JSON storage**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Development
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The temporary admin panel is available at `/admin-0311`.
