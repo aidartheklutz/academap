@@ -20,3 +20,20 @@ npm run dev
 ```
 
 The temporary admin panel is available at `/admin-0311`.
+Some parts of the project were created with the assistance of AI.
+
+# Brynza Team
+
+Brynza is our hackathon team. We are aspiring students from Bishkek (Kyrgyzstan) who wish to make our community more open and innovative.
+
+## Our Members
+
+- **Aidar Yrysov**: Head Coordinator, Frontend Developer, UX/UI Designer ([GitHub](github.com/aidartheklutz))
+- **Kylymdar Omorov**: Vice Head Coordinator, Backend Developer, API Developer ([GitHub](github.com/irfadox))
+- **Daniil Elistratov**: Research Specialist, Concept Developer, Financial Specialist
+- **Raena Isatailakova**: Presentation Designer, Research Specialist, Partnerships Lead
+
+## Our Projects on Different Hackathons
+
+- [**Nexel Hackathon 2026**](https://www.practicuma.online/events/17960/): [MemoMate](github.com/aidartheklutz/MemoMate)
+- [**Shift Hackathon 2026**](https://devkg.com/ru/events/shift-hackathon-2026-shift-1456): [Academap](github.com/aidartheklutz/academap)
