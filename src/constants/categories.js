@@ -13,6 +13,7 @@ export const CATEGORIES = {
   seminar: "Семинар",
   workshop: "Мастерская",
   hackathon: "Хакатон",
+  tournament: "Турнир",
   lecture: "Лекция",
   debate: "Дебаты",
   career_fair: "Карьерная ярмарка",
