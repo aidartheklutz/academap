@@ -94,6 +94,15 @@ export default function MapView({
           </Link>
           <nav className="map-header__nav">
             <Link
+              to="/calendar"
+              className="map-header__nav-link"
+              aria-label="Календарь"
+              title="Календарь"
+            >
+              <i className="bi bi-calendar-event-fill"></i>{" "}
+              <span>Календарь</span>
+            </Link>
+            <Link
               to="/about"
               className="map-header__nav-link"
               aria-label="О проекте"
