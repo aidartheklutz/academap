@@ -42,6 +42,10 @@ Some parts of the project were created with the assistance of AI.
 
 ![calendar](public/screenshots/calendar.png)
 
+### Admin Panel
+
+![admin panel](public/screenshots/admin.png)
+
 # Brynza Team
 
 Brynza is our hackathon team. We are aspiring students from Bishkek (Kyrgyzstan) who wish to make our community more open and innovative.
