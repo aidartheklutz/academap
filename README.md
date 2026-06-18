@@ -8,21 +8,21 @@ Instead of searching through different chats, posts, and websites, students can 
 
 ### Map and Filters
 
-![map view](/screenshots/map.png)
+![map view](public/screenshots/map.png)
 
-![map view with filters](/screenshots/map-filter.png)
+![map view with filters](public/screenshots/map-filter.png)
 
 ### Event Information
 
-![even information](/screenshots/info-0.png)
+![event information](public/screenshots/info-0.png)
 
-![even information](/screenshots/info-1.png)
+![event information](public/screenshots/info-1.png)
 
-![even information](/screenshots/info-2.png)
+![event information](public/screenshots/info-2.png)
 
 ### Calendar (Events Overview)
 
-![calendar](/screenshots/calendar.png)
+![calendar](public/screenshots/calendar.png)
 
 ## Tech Stack
 
