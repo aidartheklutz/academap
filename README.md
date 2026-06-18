@@ -4,6 +4,26 @@ Academap is a map of Bishkek with opportunities for students marked around the c
 
 Instead of searching through different chats, posts, and websites, students can open one map and look for olympiads, Model UN events, conferences, volunteering, internships, courses, film meetups, book clubs, English Talking Clubs, contests, trainings, seminars, workshops, hackathons, lectures, debates, career fairs, scholarships, exhibitions, and other opportunities.
 
+## Screenshots
+
+### Map and Filters
+
+![map view](/screenshots/map.png)
+
+![map view with filters](/screenshots/map-filter.png)
+
+### Event Information
+
+![even information](/screenshots/info-0.png)
+
+![even information](/screenshots/info-1.png)
+
+![even information](/screenshots/info-2.png)
+
+### Calendar (Events Overview)
+
+![calendar](/screenshots/calendar.png)
+
 ## Tech Stack
 
 - **React** + **Vite**
