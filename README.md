@@ -59,5 +59,5 @@ Brynza is our hackathon team. We are aspiring students from Bishkek (Kyrgyzstan)
 
 ## Our Projects on Different Hackathons
 
-- [**Nexel Hackathon 2026**](https://www.practicuma.online/events/17960/): [MemoMate](github.com/aidartheklutz/MemoMate)
-- [**Shift Hackathon 2026**](https://devkg.com/ru/events/shift-hackathon-2026-shift-1456): [Academap](github.com/aidartheklutz/academap)
+- [**Nexel Hackathon 2026**](https://www.practicuma.online/events/17960/): [MemoMate](https://github.com/aidartheklutz/MemoMate)
+- [**Shift Hackathon 2026**](https://devkg.com/ru/events/shift-hackathon-2026-shift-1456): [Academap](https://github.com/aidartheklutz/academap)
